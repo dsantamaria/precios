@@ -1,14 +1,25 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>Precios</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "default" %>
 </head>
-<body style="background: #EEEEEE;">
-
+<body>
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li class="active"><%= link_to 'Home', root_path %></li>
+				<li><%= link_to 'Usuarios', usuarios_path %></li>
+				
+				<li><a href="#">Precios</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="page">
+		<!-- start content -->
+		<div id="content">
 <%= yield %>
-
+		</div>
+	</div>
 </body>
 </html>
