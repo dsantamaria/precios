@@ -1,6 +1,8 @@
 Precios::Application.routes.draw do
 
-  devise_for :usuarios
+  devise_for :admins
+
+  devise_for :usuarios do get '/usuarios/sign_out' => 'devise/sessions#destroy' end
 
   get "home/index"
 
