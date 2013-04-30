@@ -1,8 +1,11 @@
 class Usuario < ActiveRecord::Base
-  attr_accessible :lastlogin, :login, :pass, :pass_confirmation
-  
-  validates :login,  :presence => true
-  validates :pass, :presence => true,
-                      :length => { :minimum => 5 }
-  validates_confirmation_of :pass
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  # attr_accessible :title, :body
 end

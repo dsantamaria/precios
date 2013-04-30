@@ -11,14 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423182159) do
-
-  create_table "usuarios", :force => true do |t|
-    t.string   "login"
-    t.string   "pass"
-    t.datetime "lastlogin"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end

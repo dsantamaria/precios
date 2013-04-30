@@ -1,6 +1,6 @@
 Precios::Application.routes.draw do
-  resources :usuarios
 
+  devise_for :usuarios
 
   get "home/index"
 
