@@ -1,11 +1,19 @@
 Precios::Application.routes.draw do
 
+  get "usuarios/index"
+
+  resources :proveedors
+
+  
+
   resources :empresas
 
 
   devise_for :admins
 
-  devise_for :usuarios do get '/usuarios/sign_out' => 'devise/sessions#destroy' end
+  devise_for :usuarios do get '/usuarios/sign_out' => 'devise/sessions#destroy', :path_prefix => 'my' end
+resources :usuarios
+match 'usuarios/:id' => 'usuarios#show'
 
   get "home/index"
 

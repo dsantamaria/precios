@@ -2,6 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>Precios</title>
+  <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "default" %>
 </head>
 <body>
@@ -16,6 +19,7 @@
 				<%= render 'devise/menu/registration_items' %>
 				<%= render 'devise/menu/login_items' %>
 				<li><%= link_to 'Empresa', empresas_path %></li>
+				<li><%= link_to 'Proveedor', proveedors_path %></li>				
 			</ul>
 		</div>
 	</div>
