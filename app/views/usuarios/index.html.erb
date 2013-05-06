@@ -1,5 +1,12 @@
 <h1>Usuarios</h1>
+<% if current_usuario.admin? %>
+  <div>Signed in as... <%= current_usuario.email %></div>
+<% end %>
 <% @usuarios.each do |usuario| %>
-<%= usuario.email %>
-<%= usuario.admin %>
+<table>
+	<tr>
+		<td><%= usuario.email %></td>
+		<td><%= usuario.admin %></td>
+	</tr>
+</table>
 <% end %>
