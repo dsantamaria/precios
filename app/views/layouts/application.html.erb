@@ -12,21 +12,13 @@
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
 		<div id="menu">
-			<ul>
-				<li class="active"><%= link_to 'Home', root_path %></li>
-				
-				<li><a href="#">Precios</a></li>
-				<%= render 'devise/menu/registration_items' %>
-				<%= render 'devise/menu/login_items' %>
-				<li><%= link_to 'Empresa', empresas_path %></li>
-				<li><%= link_to 'Proveedor', proveedors_path %></li>				
-			</ul>
+			<%= render :partial=>"layouts/#{controller.sub_layout}" %>
 		</div>
 	</div>
 	<div id="page">
 		<!-- start content -->
 		<div id="content">
-<%= yield %>
+			<%= yield %>
 		</div>
 	</div>
 </body>

@@ -1,12 +1,15 @@
-<h1>Usuarios</h1>
 <% if current_usuario.admin? %>
-  <div>Signed in as... <%= current_usuario.email %></div>
-<% end %>
-<% @usuarios.each do |usuario| %>
-<table>
-	<tr>
-		<td><%= usuario.email %></td>
-		<td><%= usuario.admin %></td>
-	</tr>
-</table>
+	<h1>Usuarios</h1>
+	<div>Signed in as... <%= current_usuario.email %></div>
+
+	<% @usuarios.each do |usuario| %>
+		<table>
+			<tr>
+				<td><%= usuario.email %></td>
+				<td><%= usuario.admin %></td>
+			</tr>
+		</table>
+	<% end %>
+<% else %>
+	<h1>Usted no tiene permiso para acceder a esta pagina </h1>
 <% end %>
