@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
   
   def sub_layout
-    if current_usuario.admin?
+    if(current_usuario && current_usuario.admin?)
       "admin" 
     else
       "usuario"

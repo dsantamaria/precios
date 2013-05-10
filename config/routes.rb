@@ -9,8 +9,6 @@ Precios::Application.routes.draw do
   resources :empresas
 
 
-  devise_for :admins
-
   devise_for :usuarios do get '/usuarios/sign_out' => 'devise/sessions#destroy', :path_prefix => 'my' end
 resources :usuarios
 match 'usuarios/:id' => 'usuarios#show'

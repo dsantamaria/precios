@@ -1,15 +1,22 @@
-<% if current_usuario.admin? %>
+<% if(current_usuario && current_usuario.admin?) %>
 	<h1>Usuarios</h1>
 	<div>Signed in as... <%= current_usuario.email %></div>
-
-	<% @usuarios.each do |usuario| %>
-		<table>
-			<tr>
-				<td><%= usuario.email %></td>
-				<td><%= usuario.admin %></td>
-			</tr>
-		</table>
-	<% end %>
+	<table>
+	    <tr>
+	      <th>Email</th>
+	      <th>Admin</th>
+	      <th>Estado</th>
+	      <th>Opciones</th>			  
+	    </tr>
+			<% @usuarios.each do |usuario| %>
+				<tr>
+					<td><%= usuario.email %></td>
+					<td><%= usuario.admin %></td>
+					<td><%= usuario.activo %></td>				
+					<td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+			<% end %>
+	</table>
 <% else %>
 	<h1>Usted no tiene permiso para acceder a esta pagina </h1>
 <% end %>
