@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510040846) do
+ActiveRecord::Schema.define(:version => 20130514012210) do
+
+  create_table "categoria_productos", :force => true do |t|
+    t.string   "nombre"
+    t.boolean  "estado"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "empresas", :force => true do |t|
     t.string   "nombre"
@@ -26,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20130510040846) do
     t.string   "nombre"
     t.string   "direccion"
     t.string   "telefono"
+    t.boolean  "estado"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "unidades", :force => true do |t|
+    t.string   "nombre"
     t.boolean  "estado"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -46,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20130510040846) do
     t.datetime "updated_at",                                :null => false
     t.boolean  "admin",                  :default => false
     t.boolean  "activo",                 :default => false
+    t.integer  "empresa"
   end
 
   add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true

@@ -13,6 +13,7 @@ class Usuario < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+  belongs_to :empresa
   
   #this method is called by devise to check for "active" state of the model
   def active_for_authentication?

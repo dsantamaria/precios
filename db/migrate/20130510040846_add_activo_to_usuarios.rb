@@ -4,6 +4,6 @@ class AddActivoToUsuarios < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :usuarios, :activow
+    remove_column :usuarios, :activo
   end
 end
