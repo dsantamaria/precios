@@ -1,5 +1,8 @@
 Precios::Application.routes.draw do
 
+  resources :productos
+
+
   get "usuarios/index"
 
   resources :proveedors

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517020132) do
+ActiveRecord::Schema.define(:version => 20130517023227) do
 
   create_table "categoria_productos", :force => true do |t|
     t.string   "nombre"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(:version => 20130517020132) do
     t.boolean  "estado",     :default => true
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "productos", :force => true do |t|
+    t.integer  "id_proveedor"
+    t.integer  "id_categoria_producto"
+    t.string   "nombre"
+    t.string   "ingrediente_activo"
+    t.float    "concentracion_ing_activo"
+    t.float    "precio"
+    t.datetime "vigencia"
+    t.boolean  "estado"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "proveedors", :force => true do |t|

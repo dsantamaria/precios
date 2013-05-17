@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id proveedor:</b>
+  <%= @producto.id_proveedor %>
+</p>
+
+<p>
+  <b>Id categoria producto:</b>
+  <%= @producto.id_categoria_producto %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @producto.nombre %>
+</p>
+
+<p>
+  <b>Ingrediente activo:</b>
+  <%= @producto.ingrediente_activo %>
+</p>
+
+<p>
+  <b>Concentracion ing activo:</b>
+  <%= @producto.concentracion_ing_activo %>
+</p>
+
+<p>
+  <b>Precio:</b>
+  <%= @producto.precio %>
+</p>
+
+<p>
+  <b>Vigencia:</b>
+  <%= @producto.vigencia %>
+</p>
+
+<p>
+  <b>Estado:</b>
+  <%= @producto.estado %>
+</p>
+
+
+<%= link_to 'Edit', edit_producto_path(@producto) %> |
+<%= link_to 'Back', productos_path %>

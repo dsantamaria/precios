@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id_proveedor: 1
+  id_categoria_producto: 1
+  nombre: MyString
+  ingrediente_activo: MyString
+  concentracion_ing_activo: 1.5
+  precio: 1.5
+  vigencia: 2013-05-16 23:32:27
+  estado: false
+
+two:
+  id_proveedor: 1
+  id_categoria_producto: 1
+  nombre: MyString
+  ingrediente_activo: MyString
+  concentracion_ing_activo: 1.5
+  precio: 1.5
+  vigencia: 2013-05-16 23:32:27
+  estado: false

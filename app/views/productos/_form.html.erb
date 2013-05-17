@@ -1,0 +1,49 @@
+<%= form_for(@producto) do |f| %>
+  <% if @producto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+
+      <ul>
+      <% @producto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_proveedor %><br />
+    <%= f.text_field :id_proveedor %>
+  </div>
+  <div class="field">
+    <%= f.label :id_categoria_producto %><br />
+    <%= f.text_field :id_categoria_producto %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :ingrediente_activo %><br />
+    <%= f.text_field :ingrediente_activo %>
+  </div>
+  <div class="field">
+    <%= f.label :concentracion_ing_activo %><br />
+    <%= f.text_field :concentracion_ing_activo %>
+  </div>
+  <div class="field">
+    <%= f.label :precio %><br />
+    <%= f.text_field :precio %>
+  </div>
+  <div class="field">
+    <%= f.label :vigencia %><br />
+    <%= f.datetime_select :vigencia %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br />
+    <%= f.check_box :estado %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
