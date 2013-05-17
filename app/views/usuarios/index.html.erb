@@ -6,13 +6,15 @@
 	      <th>Email</th>
 	      <th>Admin</th>
 	      <th>Estado</th>
+		  <th>Empresa</th>
 	      <th>Opciones</th>			  
 	    </tr>
 			<% @usuarios.each do |usuario| %>
 				<tr>
 					<td><%= usuario.email %></td>
 					<td><%= usuario.admin %></td>
-					<td><%= usuario.activo %></td>				
+					<td><%= usuario.activo %></td>
+					<td><%= @empresa.nombre %></td>				
 					<td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
 			<% end %>

@@ -2,8 +2,12 @@ class UsuariosController < ApplicationController
   
   def index 
       @usuarios = Usuario.all(:conditions => "email!='" + current_usuario.email + "'")
+      
+      
+        @empresa = Empresa.find(2) 
  
       respond_to do |format|
+
         format.html # index.html.erb
         format.json { render json: @usuarios }
       end
