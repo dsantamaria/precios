@@ -10,11 +10,15 @@
 	      <th>Opciones</th>			  
 	    </tr>
 			<% @usuarios.each do |usuario| %>
+
 				<tr>
 					<td><%= usuario.email %></td>
 					<td><%= usuario.admin %></td>
 					<td><%= usuario.activo %></td>
-					<td><%= @empresa.nombre %></td>				
+					<td> <% if(usuario.empresa)%>
+						<%= usuario.empresa.nombre %>
+						<% end %>
+					</td>				
 					<td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
 			<% end %>

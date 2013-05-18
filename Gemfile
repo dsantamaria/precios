@@ -11,6 +11,8 @@ gem 'thin'
 
 gem 'devise'
 
+gem 'valid_email'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -180,7 +180,7 @@ img.right {
  
 #content { 
 	float: left; 
-	width: 580px; 
+	width: 100%; 
 } 
  
 .post { 

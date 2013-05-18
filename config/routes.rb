@@ -1,5 +1,8 @@
 Precios::Application.routes.draw do
 
+  resources :categoria_productos
+
+
   resources :productos
 
 

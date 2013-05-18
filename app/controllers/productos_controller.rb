@@ -2,7 +2,7 @@ class ProductosController < ApplicationController
   # GET /productos
   # GET /productos.json
   def index
-    @productos = Producto.all
+    @productos = Producto.order(params[:sort])
 
     respond_to do |format|
       format.html # index.html.erb

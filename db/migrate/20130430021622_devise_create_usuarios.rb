@@ -18,6 +18,8 @@ class DeviseCreateUsuarios < ActiveRecord::Migration
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+      
+      t.references :empresa
 
       ## Confirmable
       # t.string   :confirmation_token
@@ -39,6 +41,7 @@ class DeviseCreateUsuarios < ActiveRecord::Migration
 
     add_index :usuarios, :email,                :unique => true
     add_index :usuarios, :reset_password_token, :unique => true
+    add_index :usuarios, :empresa_id
     # add_index :usuarios, :confirmation_token,   :unique => true
     # add_index :usuarios, :unlock_token,         :unique => true
     # add_index :usuarios, :authentication_token, :unique => true
