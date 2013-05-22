@@ -4,17 +4,21 @@ class CreateProductos < ActiveRecord::Migration
       t.string :nombre
       t.string :ingrediente_activo
       t.float :concentracion_ing_activo
+      t.string :tipo_formula
+      t.integer :cantidad_unitaria
+      t.string :empaque_unitario
       t.float :precio
-      t.datetime :vigencia
+      t.float :precio_unitario      
+      t.string :ultimo_update
       t.boolean :estado
       t.references :proveedor
-      t.references :categoria_productos
+      t.references :categoria_producto
 
       t.timestamps
             
     end
               
     add_index :productos, :proveedor_id
-    add_index :productos, :categoria_productos_id
+    add_index :productos, :categoria_producto_id
   end
 end

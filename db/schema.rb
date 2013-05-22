@@ -33,16 +33,20 @@ ActiveRecord::Schema.define(:version => 20130518161748) do
     t.string   "nombre"
     t.string   "ingrediente_activo"
     t.float    "concentracion_ing_activo"
+    t.string   "tipo_formula"
+    t.integer  "cantidad_unitaria"
+    t.string   "empaque_unitario"
     t.float    "precio"
-    t.datetime "vigencia"
+    t.float    "precio_unitario"
+    t.string   "ultimo_update"
     t.boolean  "estado"
     t.integer  "proveedor_id"
-    t.integer  "categoria_productos_id"
+    t.integer  "categoria_producto_id"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
   end
 
-  add_index "productos", ["categoria_productos_id"], :name => "index_productos_on_categoria_productos_id"
+  add_index "productos", ["categoria_producto_id"], :name => "index_productos_on_categoria_producto_id"
   add_index "productos", ["proveedor_id"], :name => "index_productos_on_proveedor_id"
 
   create_table "proveedors", :force => true do |t|

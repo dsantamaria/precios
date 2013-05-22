@@ -1,8 +1,10 @@
 class EmpresasController < ApplicationController
+  handles_sortable_columns
   # GET /empresas
   # GET /empresas.json
   def index
-    @empresas = Empresa.all
+    order = sortable_column_order
+    @empresas = Empresa.order(order)
 
     respond_to do |format|
       format.html # index.html.erb

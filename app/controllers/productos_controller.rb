@@ -1,8 +1,11 @@
 class ProductosController < ApplicationController
+  handles_sortable_columns
   # GET /productos
   # GET /productos.json
   def index
-    @productos = Producto.order(params[:sort])
+#    @productos = Producto.order(params[:sort])
+    order = sortable_column_order
+    @productos = Producto.order(order)
 
     respond_to do |format|
       format.html # index.html.erb

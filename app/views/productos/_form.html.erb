@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :"Proveedor" %><br />
-    <%= f.text_field :proveedor_id %>
+	<%= select("producto", "proveedor_id", Proveedor.all.collect {|p| [ p.nombre, p.id ] }, {:include_blank => 'Ninguno'}) %>
   </div>
   <div class="field">
     <%= f.label :"Categoria Producto" %><br />
-    <%= f.text_field :categoria_productos_id %>
+	<%= select("producto", "categoria_producto_id", CategoriaProducto.all.collect {|p| [ p.nombre, p.id ] }, {:include_blank => 'Ninguno'}) %>
   </div>
   <div class="field">
     <%= f.label :nombre %><br />
@@ -32,12 +32,28 @@
     <%= f.text_field :concentracion_ing_activo %>
   </div>
   <div class="field">
+    <%= f.label "Tipo Formulacion" %><br />
+    <%= f.text_field :tipo_formula %>
+  </div>
+  <div class="field">
+    <%= f.label "Cantidad Unitaria" %><br />
+    <%= f.text_field :cantidad_unitaria %>
+  </div>
+  <div class="field">
+    <%= f.label "Empaque Unitario" %><br />
+    <%= f.text_field :empaque_unitario %>
+  </div>  
+  <div class="field">
     <%= f.label :precio %><br />
     <%= f.text_field :precio %>
   </div>
   <div class="field">
-    <%= f.label :vigencia %><br />
-    <%= f.datetime_select :vigencia %>
+    <%= f.label :precio_unitario %><br />
+    <%= f.text_field :precio_unitario %>
+  </div>
+  <div class="field">
+    <%= f.label "Ultima Actualizacion" %><br />
+    <%= f.text_field :ultimo_update %>
   </div>
   <div class="field">
     <%= f.label :estado %><br />

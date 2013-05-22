@@ -1,8 +1,10 @@
 class CategoriaProductosController < ApplicationController
+  handles_sortable_columns
   # GET /categoria_productos
   # GET /categoria_productos.json
   def index
-    @categoria_productos = CategoriaProducto.all
+    order = sortable_column_order
+    @categoria_productos = CategoriaProducto.order(order)
 
     respond_to do |format|
       format.html # index.html.erb
