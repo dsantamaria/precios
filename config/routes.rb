@@ -1,24 +1,24 @@
 Precios::Application.routes.draw do
 
   resources :categoria_productos
-
+  
+  
+  resources :productos do
+    collection do 
+      get :importar 
+      post :importar_post
+    end
+  end
 
   resources :productos
-
-
-  get "usuarios/index"
-
   resources :proveedors
-
-  
-
   resources :empresas
 
-
   devise_for :usuarios do get '/usuarios/sign_out' => 'devise/sessions#destroy', :path_prefix => 'my' end
-resources :usuarios
-match 'usuarios/:id' => 'usuarios#show'
+  resources :usuarios
+  match 'usuarios/:id' => 'usuarios#show'
 
+  get "usuarios/index"
   get "home/index"
 
   # The priority is based upon order of creation:

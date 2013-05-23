@@ -15,6 +15,8 @@ gem 'valid_email'
 
 gem "handles_sortable_columns"
 
+gem 'roo'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

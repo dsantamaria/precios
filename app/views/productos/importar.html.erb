@@ -1,0 +1,6 @@
+<h2>Importar Productos</h2>
+
+<%= form_tag importar_post_productos_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Importar" %>
+<% end %>

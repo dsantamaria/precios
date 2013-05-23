@@ -83,4 +83,12 @@ class ProductosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def importar
+  end
+  
+  def importar_post
+    Producto.importar_post(params[:file])
+    redirect_to root_url, notice: "Productos importados."
+  end
 end
