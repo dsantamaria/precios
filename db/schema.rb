@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20130518161748) do
   create_table "productos", :force => true do |t|
     t.string   "nombre"
     t.string   "ingrediente_activo"
-    t.float    "concentracion_ing_activo"
+    t.string   "concentracion_ing_activo"
     t.string   "tipo_formula"
-    t.integer  "cantidad_unitaria"
+    t.float    "cantidad_unitaria"
     t.string   "empaque_unitario"
     t.float    "precio"
     t.float    "precio_unitario"

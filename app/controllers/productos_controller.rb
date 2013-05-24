@@ -88,7 +88,12 @@ class ProductosController < ApplicationController
   end
   
   def importar_post
-    Producto.importar_post(params[:file])
-    redirect_to root_url, notice: "Productos importados."
+    if (!params[:file] )
+      redirect_to importar_productos_path, alert: "No selecciono un archivo"      
+    else
+      Producto.importar_post(params[:file])
+      redirect_to productos_path, notice: "Productos importados."      
+    end
+
   end
 end
