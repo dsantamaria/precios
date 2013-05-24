@@ -21,11 +21,8 @@ class Producto < ActiveRecord::Base
       #TODO: hacer un log de los datos de los productos que no se insertaron , y pq razon
       row = limpiar_row(row)
       #TODO: agregar validacion por proveedor y por categoria producto
-      producto = Producto.find(:first, :conditions => [" nombre = '"+row['nombre']+"' AND  ingrediente_activo ='"+row['ingrediente_activo']+
-        "' AND  tipo_formula ='"+row['tipo_formula']+"' AND  concentracion_ing_activo='"+row['concentracion_ing_activo']+
-        "' AND  cantidad_unitaria ="+row['cantidad_unitaria']+" AND  empaque_unitario ='"+row['empaque_unitario']+
-        "' AND  precio ='"+String(row['precio'])+"' AND  precio_unitario ='"+String(row['precio_unitario'])+"'"]) || new
-
+	  producto = Producto.where("nombre = '?' AND ingrediente_activo = '?' AND tipo_formula = '?' AND concentracion_ing_activo = '?' 
+		AND cantidad_unitaria = '?' AND empaque_unitario ='?' AND precio ='?' AND precio_unitario ='?'").first() || new
       producto.attributes = row.to_hash.slice(*accessible_attributes)
       producto.save!
     end
@@ -33,12 +30,19 @@ class Producto < ActiveRecord::Base
   
   #limpiar caracteres y valores antes de guardar
   def self.limpiar_row(fila)
-    fila["precio"] = fila["precio"].gsub('$','')
-    fila["precio"] = Float(fila["precio"].gsub(',',''))
-    fila["precio_unitario"] = fila["precio_unitario"].gsub('$','')
-    fila["precio_unitario"] = Float(fila["precio_unitario"].gsub(',',''))
-    fila["concentracion_ing_activo"] = fila["concentracion_ing_activo"].gsub('%','')
-    fila["estado"] = true
+    fila["precio"] = fila["precio"] ? fila["precio"].gsub('$','') : ''
+    fila["precio"] = fila["precio"] ? fila["precio"].gsub(',','') : ''
+	boolPrecio = fila["precio"].is_a?(Numeric)
+	fila["precio"] = boolPrecio ? Float(fila["precio"]) : 0.0
+    
+	fila["precio_unitario"] = fila["precio_unitario"] ? fila["precio_unitario"].gsub('$','') : ''
+	fila["precio_unitario"] = fila["precio_unitario"] ? fila["precio_unitario"].gsub(',','') : ''
+	boolPrecioUnitario = fila["precio_unitario"].is_a?(Numeric)
+	fila["precio_unitario"] = boolPrecioUnitario ? Float(fila["precio_unitario"]) : 0.0
+    
+	fila["concentracion_ing_activo"] = fila["concentracion_ing_activo"] ? fila["concentracion_ing_activo"].gsub('%','') : ''
+    
+	fila["estado"] = true
     return fila
   end
   
