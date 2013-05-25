@@ -3,9 +3,10 @@ class ProductosController < ApplicationController
   # GET /productos
   # GET /productos.json
   def index
-#    @productos = Producto.order(params[:sort])
     order = sortable_column_order
     @productos = Producto.order(order)
+    
+    #aca debo buscar los proveedores y categorias_producto y setearlos como arrays asi en la vista no consulto solo busco sobre este array 
 
     respond_to do |format|
       format.html # index.html.erb

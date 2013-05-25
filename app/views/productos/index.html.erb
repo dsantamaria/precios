@@ -20,6 +20,8 @@
 <% @productos.each do |producto| %>
   <tr>
 	<td> 
+				<!-- URGENTE SACAR ESTAS DOS CONSULTAS DE ACA!!!!! deben irse al controller en el index action -->
+				<% if(false) %>
 		<% if(producto.proveedor)%>
 		<%= producto.proveedor.nombre %>
 		<% end %>
@@ -28,7 +30,10 @@
 		<% if(producto.categoria_producto)%>
 		<%= producto.categoria_producto.nombre %>
 		<% end %>
+				<% end %>
+					
 	</td>
+	
     <td><%= producto.nombre %></td>
     <td><%= producto.ingrediente_activo %></td>
     <td><%= producto.concentracion_ing_activo %></td>

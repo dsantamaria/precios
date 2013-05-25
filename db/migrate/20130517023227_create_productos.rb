@@ -5,10 +5,10 @@ class CreateProductos < ActiveRecord::Migration
       t.string :ingrediente_activo
       t.string :concentracion_ing_activo
       t.string :tipo_formula
-      t.float :cantidad_unitaria
+      t.string :cantidad_unitaria
       t.string :empaque_unitario
-      t.float :precio
-      t.float :precio_unitario      
+      t.string :precio
+      t.string :precio_unitario      
       t.string :ultimo_update
       t.boolean :estado
       t.references :proveedor
