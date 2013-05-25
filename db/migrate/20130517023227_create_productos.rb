@@ -6,6 +6,7 @@ class CreateProductos < ActiveRecord::Migration
       t.string :concentracion_ing_activo
       t.string :tipo_formula
       t.string :cantidad_unitaria
+      t.string :unidad
       t.string :empaque_unitario
       t.string :precio
       t.string :precio_unitario      

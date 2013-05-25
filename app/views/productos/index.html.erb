@@ -9,6 +9,7 @@
     <th><%= sortable_column "Concentracion Ing. activo", :column => "concentracion_ing_activo" %></th>
     <th><%= sortable_column "Tipo Formulacion", :column => "tipo_formula" %></th>
     <th><%= sortable_column "Cantidad Unitaria" %></th>	
+    <th><%= sortable_column "Unidad" %></th>	
     <th><%= sortable_column "Empaque Unitario" %></th>	
     <th><%= sortable_column "Precio" %></th>
     <th><%= sortable_column "Precio Unitario" %></th>	
@@ -33,7 +34,7 @@
 				<% end %>
 					
 	</td>
-	
+	<td></td>
     <td><%= producto.nombre %></td>
     <td><%= producto.ingrediente_activo %></td>
     <td><%= producto.concentracion_ing_activo %></td>

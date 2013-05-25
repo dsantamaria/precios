@@ -1,6 +1,6 @@
 class Producto < ActiveRecord::Base
   attr_accessible :concentracion_ing_activo, :estado, :proveedor_id, :categoria_producto_id, :ingrediente_activo, :nombre, :precio, :ultimo_update,
-  :tipo_formula, :cantidad_unitaria, :empaque_unitario, :precio_unitario 
+  :tipo_formula, :cantidad_unitaria, :unidad, :empaque_unitario, :precio_unitario 
   belongs_to :categoria_producto
   belongs_to :proveedor
   
@@ -8,11 +8,10 @@ class Producto < ActiveRecord::Base
   def self.importar_post(file)
     spreadsheet = open_spreadsheet(file)
     header = ["num_fila", "proveedor_id" , "categoria_producto_id", "nombre", "ingrediente_activo", "tipo_formula", "concentracion_ing_activo",
-      "cantidad_unitaria", "TODO:UNIDAD!!!!!!", "empaque_unitario", "precio", "precio_unitario", "ultimo_update"]
+      "cantidad_unitaria", "unidad", "empaque_unitario", "precio", "precio_unitario", "ultimo_update"]
      
     (1..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      #TODO: arreglar tema columna unidades, agregarla a la DB
       #TODO: relacionar proveedor y categoria con sus respectivas tablas     
       #TODO: hacer un log de los datos de los productos que no se insertaron , y pq razon
       
@@ -20,9 +19,9 @@ class Producto < ActiveRecord::Base
 
       #TODO: agregar validacion por proveedor y por categoria producto
       producto = Producto.where("nombre is ? AND ingrediente_activo is ? AND tipo_formula is ? 
-      AND concentracion_ing_activo is ? AND cantidad_unitaria is ? AND empaque_unitario is ? 
+      AND concentracion_ing_activo is ? AND cantidad_unitaria is ? AND unidad is ? AND empaque_unitario is ? 
       AND precio is ? AND precio_unitario is ?", row["nombre"], row["ingrediente_activo"], row["tipo_formula"], row["concentracion_ing_activo"], 
-      row["cantidad_unitaria"], row["empaque_unitario"], row["precio"], row["precio_unitario"]).first() || new
+      row["cantidad_unitaria"], row["unidad"], row["empaque_unitario"], row["precio"], row["precio_unitario"]).first() || new
       
       row["estado"] = true
       producto.attributes = row.to_hash.slice(*accessible_attributes)

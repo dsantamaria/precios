@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518161748) do
+ActiveRecord::Schema.define(:version => 20130517023227) do
 
   create_table "categoria_productos", :force => true do |t|
     t.string   "nombre"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130518161748) do
     t.string   "concentracion_ing_activo"
     t.string   "tipo_formula"
     t.string   "cantidad_unitaria"
+    t.string   "unidad"
     t.string   "empaque_unitario"
     t.string   "precio"
     t.string   "precio_unitario"
@@ -57,13 +58,6 @@ ActiveRecord::Schema.define(:version => 20130518161748) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "email"
-  end
-
-  create_table "unidades", :force => true do |t|
-    t.string   "nombre"
-    t.boolean  "estado"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "usuarios", :force => true do |t|
