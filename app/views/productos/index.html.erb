@@ -1,5 +1,7 @@
 <h1>Listing productos</h1><br>
-
+<%= link_to 'Importar', importar_productos_path %>
+<%= link_to 'New Producto', new_producto_path %>
+</br></br></br></br>
 <table border="1">
   <tr>
     <th><%= sortable_column "Proveedor", :column => "proveedor_id" %></th>
@@ -40,6 +42,7 @@
     <td><%= producto.concentracion_ing_activo %></td>
     <td><%= producto.tipo_formula %></td>
     <td><%= producto.cantidad_unitaria %></td>
+	<td><%= producto.unidad %></td>
     <td><%= producto.empaque_unitario %></td>	
     <td><%= producto.precio %></td>
     <td><%= producto.precio_unitario %></td>	
@@ -51,8 +54,5 @@
   </tr>
 <% end %>
 </table>
-
 <br />
-
-<%= link_to 'Importar', importar_productos_path %>
-<%= link_to 'New Producto', new_producto_path %>
+<%= will_paginate @productos %>

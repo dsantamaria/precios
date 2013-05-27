@@ -5,6 +5,7 @@ class ProductosController < ApplicationController
   def index
     order = sortable_column_order
     @productos = Producto.order(order)
+    @productos = @productos.paginate(:page => params[:page])
     
     #aca debo buscar los proveedores y categorias_producto y setearlos como arrays asi en la vista no consulto solo busco sobre este array 
 
