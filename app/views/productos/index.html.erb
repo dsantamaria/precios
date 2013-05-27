@@ -1,7 +1,6 @@
-<h1>Listing productos</h1><br>
+<h1>Listing productos</h1>
 <%= link_to 'Importar', importar_productos_path %>
 <%= link_to 'New Producto', new_producto_path %>
-</br></br></br></br>
 <table border="1">
   <tr>
     <th><%= sortable_column "Proveedor", :column => "proveedor_id" %></th>
