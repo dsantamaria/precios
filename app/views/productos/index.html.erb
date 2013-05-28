@@ -1,7 +1,7 @@
 <h1>Listing productos</h1>
 <%= link_to 'Importar', importar_productos_path %>
 <%= link_to 'New Producto', new_producto_path %>
-<table border="1">
+<table>
   <tr>
     <th><%= sortable_column "Proveedor", :column => "proveedor_id" %></th>
     <th><%= sortable_column "Categoria Producto", :column => "categoria_producto_id" %></th>
@@ -53,5 +53,6 @@
   </tr>
 <% end %>
 </table>
-<br />
-<%= will_paginate @productos %>
+<div class="digg_pagination" align='center'>
+	<%= will_paginate @productos %>
+</div>
