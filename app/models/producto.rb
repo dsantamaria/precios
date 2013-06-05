@@ -4,6 +4,9 @@ class Producto < ActiveRecord::Base
   belongs_to :categoria_producto
   belongs_to :proveedor
   
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+  
   #importar archivos csv 
   def self.importar_post(file)
     spreadsheet = open_spreadsheet(file)
