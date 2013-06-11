@@ -1,6 +1,14 @@
 <h1>Listing productos</h1>
 <%= link_to 'Importar', importar_productos_path %>
 <%= link_to 'New Producto', new_producto_path %>
+<div>
+	<%= form_tag productos_path, method: :get do %>
+  		<p>
+    		<%= text_field_tag :query, params[:query] %>
+			<%= submit_tag "Buscar", name: nil %>
+  	  	</p>
+	<% end %>
+</div>
 <table>
   <tr>
     <th><%= sortable_column "Proveedor", :column => "proveedor_id" %></th>

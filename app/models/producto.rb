@@ -7,6 +7,12 @@ class Producto < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
   
+  def self.search(params)
+    tire.search(load: true) do
+      query { string params[:query] } if params[:query].present?
+    end
+  end
+  
   #importar archivos csv 
   def self.importar_post(file)
     spreadsheet = open_spreadsheet(file)
