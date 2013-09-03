@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(:version => 20130517023227) do
   end
 
   create_table "usuarios", :force => true do |t|
-    t.string   "email",                                     :null => false
-    t.string   "encrypted_password",                        :null => false
+    t.string   "email",                                    :null => false
+    t.string   "encrypted_password",                       :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -72,10 +72,10 @@ ActiveRecord::Schema.define(:version => 20130517023227) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "empresa_id"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.boolean  "admin",                  :default => false
-    t.boolean  "activo",                 :default => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.boolean  "admin",                  :default => true
+    t.boolean  "activo",                 :default => true
   end
 
   add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true
