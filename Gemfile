@@ -6,19 +6,15 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
 gem 'thin'
-
 gem 'devise'
-
 gem 'valid_email'
-
 gem "handles_sortable_columns"
-
 gem 'roo'
-
+# Pgination
 gem 'will_paginate', '~> 3.0.0'
 
+# Add client for the Elasticsearch search engine/database
 gem 'tire'
 
 
@@ -50,3 +46,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+gem 'pry'
+gem 'pry-remote'
+gem 'pry-stack_explorer'
+gem 'pry-debugger'

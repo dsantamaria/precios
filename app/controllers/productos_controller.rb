@@ -3,13 +3,14 @@ class ProductosController < ApplicationController
   # GET /productos
   # GET /productos.json
   def index
+    #binding.pry
     if params[:query].present?
       @productos = Producto.search(params)
-    else
+    end
       order = sortable_column_order
       @productos = Producto.order(order)
       @productos = @productos.paginate(:page => params[:page])
-    end
+    
     
     
     #aca debo buscar los proveedores y categorias_producto y setearlos como arrays asi en la vista no consulto solo busco sobre este array 
