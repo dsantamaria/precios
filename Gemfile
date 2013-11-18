@@ -9,9 +9,9 @@ gem 'sqlite3'
 gem 'thin'
 gem 'devise'
 gem 'valid_email'
-gem "handles_sortable_columns"
+##gem "handles_sortable_columns"
 gem 'roo'
-# Pgination
+# Pagination
 gem 'will_paginate', '~> 3.0.0'
 
 # Add client for the Elasticsearch search engine/database
