@@ -1,19 +1,16 @@
 class ProductosController < ApplicationController
-  handles_sortable_columns
+
   # GET /productos
   # GET /productos.json
   def index
+    
     if params[:query].present?
       @productos = Producto.search(params)
     else
-      order = sortable_column_order
-      @productos = Producto.order(order)
-      @productos = @productos.paginate(:page => params[:page])
+      @productos = Producto.paginate(:page => params[:page])
     end
     
-    
     #aca debo buscar los proveedores y categorias_producto y setearlos como arrays asi en la vista no consulto solo busco sobre este array 
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @productos }

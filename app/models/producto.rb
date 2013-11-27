@@ -7,11 +7,29 @@ class Producto < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
   
+  mapping do
+     indexes :nombre, :index => 'not_analyzed'
+     indexes :proveedor_id, :index => 'not_analyzed'
+     indexes :categoria_producto_id, :index => 'not_analyzed'
+     indexes :ingrediente_activo, :index => 'not_analyzed'
+     indexes :concentracion_ing_activo, :index => 'not_analyzed'
+     indexes  :tipo_formula, :index => 'not_analyzed'
+     indexes  :cantidad_unitaria, :index => 'not_analyzed'
+     indexes  :unidad, :index => 'not_analyzed'
+     indexes  :empaque_unitario, :index => 'not_analyzed'
+     indexes  :precio, :index => 'not_analyzed'
+     indexes  :precio_unitario, :index => 'not_analyzed'
+     indexes  :ultimo_update, :index => 'not_analyzed'
+     indexes  :estado, :index => 'not_analyzed'
+  end
   def self.search(params)
+    #binding.pry
     tire.search(load: true, page: params[:page], per_page: 20) do
       query { string params[:query] } if params[:query].present?
-      sort { by :nombre, "desc" } if params[:query].blank?
+      #sort { by Producto.column_names.include?(params[:sort]) ? params[:sort] : :id ,%w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"}
+
     end
+
     
   end
   
